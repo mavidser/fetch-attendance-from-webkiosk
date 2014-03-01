@@ -1,5 +1,8 @@
 This script is written for use in Jaypee University of Engineering and Technology, India. The usage is quite simple, with calling the funtions with the username and passwords as arguments.
 
+A demo can be seen at the following link, replacing `username` and `password` with your credentials
+[http://juetwebkiosk.appspot.com/attendance/`username`/`password`](http://juetwebkiosk.appspot.com/attendance/username/password)
+
 ###Difference between Attendance and extended Attendance.
 
 ####Attendance
