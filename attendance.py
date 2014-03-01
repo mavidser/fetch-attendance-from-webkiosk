@@ -43,9 +43,6 @@ def getAttendance(username,password):
     form_data = urllib.urlencode(form_fields)
     cj = cookielib.CookieJar()
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-    opener.addheaders.append(('User-agent', 'Mozilla/4.0'))
-    opener.addheaders.append(('Referer', 'https://webkiosk.juet.ac.in'))
-    opener.addheaders.append(('Connection', 'close'))
     resp = opener.open(url, form_data,timeout=600)
     url = 'https://webkiosk.juet.ac.in/StudentFiles/Academic/StudentAttendanceList.jsp'
     resp = opener.open(url,timeout=60)
