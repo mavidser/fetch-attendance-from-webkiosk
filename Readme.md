@@ -5,6 +5,7 @@ This script is written for use in Jaypee University of Engineering and Technolog
 ####Attendance
 
 This script fetches the Attendances only and displays the info in JSON format.
+Usage : `getAttendance('username','password')`
 
 	{
         "attendance": {
@@ -20,6 +21,7 @@ This script fetches the Attendances only and displays the info in JSON format.
 ####Extended Attendance
 
 This script fetches the Attendances and also the details of all the subjects from their respective pages and displays the info in JSON format. This script takes longer to fetch as it has to open every subject's individual page.
+Usage: `getExtendedAttendance('username','password')`
 
 	{
         "attendance": {
