@@ -1,3 +1,5 @@
+*This script was written quite some time ago, utilizing no external libraries. It uses an iterative search instead of a HTML Parser to extract data from the file.*
+
 This script is written for use in Jaypee University of Engineering and Technology, India. The usage is quite simple, with calling the funtions with the username and passwords as arguments.
 
 A demo can be seen at the following link, replacing `username` and `password` with your credentials:
