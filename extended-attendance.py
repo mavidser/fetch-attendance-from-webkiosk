@@ -1,3 +1,4 @@
+import threading
 import urllib2,urllib,httplib,cookielib
 import re,json
 
@@ -49,8 +50,9 @@ def getExtendedAttendance(username,password):
     result=result[result.index('<tb')+8:result.index('</tb')]
     no_of_subjects=len(re.findall('<td>\w*</td>',result))
     data=trimAttendance(result)
+    print data
 
-    for i in data:
+    def getIndividual(a,i):
         if i[5]!="N/A":
             i[5]=i[5].replace('&amp;','&')
             attendance="https://webkiosk.juet.ac.in/StudentFiles/Academic/"+i[5]
@@ -75,12 +77,23 @@ def getExtendedAttendance(username,password):
             i[7]=absent
             i[8]=lastClass
             i[9]=lastAbsent
+            print i
+
+    t=[]
+    for i in data:
+        t.append(threading.Thread(target=getIndividual, args = (1,i)))
+        t[-1].daemon = True
+        t[-1].start()
+
+    for i in t:
+        i.join()
 
     response=[]
     for i in data:
         response.append({'subject':i[0],'attendance':{'lectut':i[1],'lecture':i[2],
             'tutorial':i[3],'practical':i[4]},'extradetails':{'presents':i[6],'absents':i[7],'lastClass':i[8],'lastAbsent':i[9]},'link':i[5]})
+
 	with open('data.json', 'w') as f:
 		json.dump(response, f, sort_keys=True, indent=4, separators=(',', ': '))
 
-getExtendedAttendance('username','password')
+getExtendedAttendance('USERNAME','PASSWORD')
