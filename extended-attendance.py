@@ -50,7 +50,6 @@ def getExtendedAttendance(username,password):
     result=result[result.index('<tb')+8:result.index('</tb')]
     no_of_subjects=len(re.findall('<td>\w*</td>',result))
     data=trimAttendance(result)
-    print data
 
     def getIndividual(a,i):
         if i[5]!="N/A":
@@ -77,7 +76,6 @@ def getExtendedAttendance(username,password):
             i[7]=absent
             i[8]=lastClass
             i[9]=lastAbsent
-            print i
 
     t=[]
     for i in data:
