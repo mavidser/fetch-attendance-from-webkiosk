@@ -57,4 +57,4 @@ def getAttendance(username,password):
     with open('data.json', 'w') as f:
         json.dump(response, f, sort_keys=True, indent=4, separators=(',', ': '))
 
-getAttendance('username','password')
+getAttendance('USERNAME','PASSWORD')
